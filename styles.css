@@ -228,6 +228,3 @@ header h1 {
     max-width: 40px;
   }
 }
-header h1 {
-  font-size: clamp(1rem, 5vw, 2rem);
-}
