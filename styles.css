@@ -175,4 +175,20 @@ footer {
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  
+  /* Zet dit in je CSS-bestand of tussen <style> in index.html */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.8em;
+    text-align: center;
+    word-wrap: break-word;
+  }
+
+  .logo {
+    width: 50px;
+    height: auto;
+  }
+
+  .container {
+    padding: 10px;
+  }
+}
