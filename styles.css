@@ -1,0 +1,178 @@
+/* Globale box-sizing voor eenvoudiger layout */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: linear-gradient(to right, #eddc00, #7ab929);
+}
+
+header {
+    position: relative;
+    background-color: white;
+    padding: 10px 20px;
+    border-bottom: 2px solid #ccc;
+    height: 70px; /* Zorg voor vaste hoogte zodat tekst netjes in midden komt */
+  }
+  
+  .logo {
+    height: 50px;
+    float: left; /* Logo aan de linkerzijde */
+  }
+  
+  .header-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 60%; /* voorkomt dat de tekst te breed wordt */
+    pointer-events: none;
+  }
+  
+  .header-text h1 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+    line-height: 1.2;
+  }
+  
+  .header-text p {
+    margin: 4px 0 0; /* minder ruimte boven en onder */
+    color: #555;
+    font-size: 1em;
+    line-height: 1.2;
+  }
+  
+  
+/* Main content */
+main {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Grid voor veilingitems */
+.auction-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.auction-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .auction-item h2 {
+  font-size: 1.2em;
+  margin: 10px 0 5px;
+}
+
+.auction-item p {
+  margin: 0 0 10px;
+}
+
+  .auction-item {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* zorg dat alle items de beschikbare hoogte benutten */
+  }
+  .auction-item button {
+    margin-top: auto;
+  }
+    
+  .auction-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  
+input {
+  padding: 8px;
+  width: 70%;
+  max-width: 200px;
+  margin-top: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 8px 12px;
+  background-color: #7ab929;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-weight: bold;
+  transition: filter 0.3s ease;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+/* Footer */
+footer {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: white;
+  border-top: 2px solid #ccc;
+  color: #333;
+}
+
+/* Mobiele weergave */
+@media (max-width: 600px) {
+  input, button {
+    display: block;
+    width: 80%;
+    margin: 10px auto 0;
+  }
+
+  button {
+    margin-left: 0;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-text {
+    text-align: left;
+    width: 100%;
+  }
+}
+
+  
+  /* Mobiel: maximaal 1 kolom */
+  @media (max-width: 600px) {
+    .auction-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Tablet: 2 kolommen */
+  @media (min-width: 601px) and (max-width: 900px) {
+    .auction-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  

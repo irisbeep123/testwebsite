@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veiling voor Serious Request</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="site-wrapper">
+        <header>
+            <img src="GETEC_Logo.png" alt="GETEC Logo" class="logo" />
+            <div class="header-text">
+              <h1>Veiling voor Serious Request 2025</h1>
+              <p>Bied mee en steun het goede doel!</p>
+            </div>
+          </header>
+          
+      
+        <main>
+          <div class="auction-grid">
+            <div class="auction-item">
+              <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg" alt="Vintage Camera" />
+              <h2>📷 Vintage Camera</h2>
+              <p>Huidig bod: €<span id="bid1">0</span></p>
+              <input type="number" id="input1" placeholder="Jouw bod in euro's" />
+              <button onclick="placeBid(1)">Plaats bod</button>
+            </div>
+      
+            <div class="auction-item">
+              <img src="https://images.pexels.com/photos/1002638/pexels-photo-1002638.jpeg" alt="Mountain Bike" />
+              <h2>🚴 Mountainbike</h2>
+              <p>Huidig bod: €<span id="bid2">0</span></p>
+              <input type="number" id="input2" placeholder="Jouw bod in euro's" />
+              <button onclick="placeBid(2)">Plaats bod</button>
+            </div>
+      
+            <div class="auction-item">
+              <img src="https://images.pexels.com/photos/277253/pexels-photo-277253.jpeg" alt="Schilderij" />
+              <h2>🎨 Schilderij</h2>
+              <p>Huidig bod: €<span id="bid3">0</span></p>
+              <input type="number" id="input3" placeholder="Jouw bod in euro's" />
+              <button onclick="placeBid(3)">Plaats bod</button>
+            </div>
+      
+            <div class="auction-item">
+              <img src="https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg" alt="Horloge" />
+              <h2>⌚ Luxe Horloge</h2>
+              <p>Huidig bod: €<span id="bid4">0</span></p>
+              <input type="number" id="input4" placeholder="Jouw bod in euro's" />
+              <button onclick="placeBid(4)">Plaats bod</button>
+            </div>
+      
+            <div class="auction-item">
+              <img src="https://images.pexels.com/photos/3394652/pexels-photo-3394652.jpeg" alt="Fotoprint op canvas" />
+              <h2>🖼️ Fotoprint op canvas</h2>
+              <p>Huidig bod: €<span id="bid5">0</span></p>
+              <input type="number" id="input5" placeholder="Jouw bod in euro's" />
+              <button onclick="placeBid(5)">Plaats bod</button>
+            </div>
+      
+            <div class="auction-item">
+              <img src="https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg" alt="Kantoormeubel" />
+              <h2>🪑 Kantoormeubel</h2>
+              <p>Huidig bod: €<span id="bid6">0</span></p>
+              <input type="number" id="input6" placeholder="Jouw bod in euro's" />
+              <button onclick="placeBid(6)">Plaats bod</button>
+            </div>
+      
+            <div class="auction-item">
+              <img src="https://images.pexels.com/photos/1619311/pexels-photo-1619311.jpeg" alt="Sieradenset" />
+              <h2>💍 Sieradenset</h2>
+              <p>Huidig bod: €<span id="bid7">0</span></p>
+              <input type="number" id="input7" placeholder="Jouw bod in euro's" />
+              <button onclick="placeBid(7)">Plaats bod</button>
+            </div>
+      
+      
+            <div class="auction-item">
+              <img src="https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg" alt="Weekendje Weg" />
+              <h2>🏕️ Weekendje Weg</h2>
+              <p>Huidig bod: €<span id="bid9">0</span></p>
+              <input type="number" id="input9" placeholder="Jouw bod in euro's" />
+              <button onclick="placeBid(9)">Plaats bod</button>
+            </div>
+          </div>
+        </main>
+      
+        <footer>
+          <p>© 2025 GETEC - Alle rechten voorbehouden</p>
+        </footer>
+      </div>
+      
+      <script>
+        // JS om biedingen te plaatsen en bij te houden per item
+        const bids = Array(10).fill(0); // index 1 t/m 9 gebruikt
+      
+        function placeBid(itemNumber) {
+          const input = document.getElementById('input' + itemNumber);
+          const bidDisplay = document.getElementById('bid' + itemNumber);
+          const newBid = parseFloat(input.value);
+      
+          if (isNaN(newBid) || newBid <= bids[itemNumber]) {
+            alert('Voer een hoger bod in dan het huidige bod (€' + bids[itemNumber] + ')');
+            return;
+          }
+      
+          bids[itemNumber] = newBid;
+          bidDisplay.textContent = newBid.toFixed(2);
+          input.value = '';
+          alert('Je bod van €' + newBid.toFixed(2) + ' is geplaatst!');
+        }
+      </script>
+      
